@@ -1,0 +1,5 @@
+POST https://psychic-palm-tree-g47xwq47g7qv3jr6-8000.app.github.dev/train
+
+###
+
+GET https://psychic-palm-tree-g47xwq47g7qv3jr6-8000.app.github.dev/predict/left/1/right/1

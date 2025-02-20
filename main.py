@@ -1,11 +1,17 @@
 from typing import Union
 from fastapi import FastAPI
 
-# model.py를 가져옴
-import model
+# model_().py를 가져옴
+# import model_and
+# import model_or
+# import model_xor
+import model_not
 
-# model.py 안에 있는 AndModel 클래스를 생성
-model = model.AndModel()
+# model_().py 안에 있는 ()Model 클래스를 생성
+# model_and = model_and.AndModel()
+# model_or = model_or.OrModel()
+# model_xor = model_xor.XorModel()
+model_not = model_not.NotModel()
 
 app = FastAPI()
 
@@ -21,12 +27,21 @@ def read_root():
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
-@app.get("/predict/left/{left}/right/{right}") 
-def predict(left: int, right: int):
-    result = model.predict([left, right])
+# @app.get("/predict/left/{left}/right/{right}") 
+# def predict(left: int, right: int):
+    # result = model_xor.predict([left, right])
+    # return {"result": result}
+
+@app.get("/predict/value/{value}") 
+def predict(value: int):
+    result = model_not.predict([value])
     return {"result": result}
 
 @app.get("/train")
 def train():
-    model.train()
+    # model_and.train()
+    # model_or.train()
+    # model_xor.train()
+    model_not.train()
     return {"result = OK"}
+
