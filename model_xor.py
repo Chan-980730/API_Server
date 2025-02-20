@@ -17,7 +17,7 @@ class XorModel:
                 # 총 입력 계산
                 total_input = np.dot(inputs[i], self.weights) + self.bias
                 # 예측 출력 계산
-                prediction = self.step_function(total_input)
+                prediction = self.sigmoid(total_input)
                 # 오차 계산
                 error = outputs[i] - prediction
                 print(f'inputs[i] : {inputs[i]}')
@@ -30,10 +30,11 @@ class XorModel:
                 self.bias += learning_rate * error
                 print('====')        
 
-    def step_function(self, x):
-        return 1 if x >= 0 else 0
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
+
     
     def predict(self, input_data): # input_data -> 배열 형태, 2개
         total_input = np.dot(input_data, self.weights) + self.bias
-        return self.step_function(total_input)    
+        return self.sigmoid(total_input)    
     
