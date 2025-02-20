@@ -38,7 +38,7 @@ def predict_or(left: int, right: int):
     result = model_or.predict([left, right])
     return {"result": result}
 
-# xor
+# TODO: xor을 sigmoid로 다시 코딩해야함 / 비선형 구조라서 선형 구조인 Step_Function으로는 안됨
 @app.get("/predict_xor/left/{left}/right/{right}") 
 def predict_xor(left: int, right: int):
     result = model_xor.predict([left, right])
